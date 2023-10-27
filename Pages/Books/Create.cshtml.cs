@@ -22,6 +22,12 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
         public IActionResult OnGet()
         {
             ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+            var authorList = _context.Authors.Select(x => new
+            {
+                x.ID,
+                FullName = x.FirstName + " " + x.LastName
+            });
+            ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
             return Page();
         }
 
@@ -32,10 +38,10 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Book == null || Book == null)
+          /*if (!ModelState.IsValid || _context.Book == null || Book == null)
             {
                 return Page();
-            }
+            }*/
 
             _context.Book.Add(Book);
             await _context.SaveChangesAsync();

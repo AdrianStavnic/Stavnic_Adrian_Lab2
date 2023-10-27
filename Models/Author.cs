@@ -1,4 +1,6 @@
-﻿namespace Stavnic_Adrian_Lab2.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Stavnic_Adrian_Lab2.Models
 {
     public class Author
     {

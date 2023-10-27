@@ -37,7 +37,6 @@
             <div class="form-group">
                 <label asp-for="Book.AuthorID" class="control-label">Author</label>
                 <select asp-for="Book.AuthorID" asp-items="ViewBag.AuthorList" class="form-control">
-                    <option value="">Select an Author</option>
                 </select>
                 <span asp-validation-for="Book.AuthorID" class="text-danger"></span>
             </div>
