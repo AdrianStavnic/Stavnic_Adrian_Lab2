@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Stavnic_Adrian_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Stavnic_Adrian_Lab2.Data;
 namespace Stavnic_Adrian_Lab2.Migrations
 {
     [DbContext(typeof(Stavnic_Adrian_Lab2Context))]
-    partial class Stavnic_Adrian_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231027131748_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

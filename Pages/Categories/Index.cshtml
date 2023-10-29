@@ -1,5 +1,5 @@
-﻿@page "/"
-@model Stavnic_Adrian_Lab2.Pages.Books.IndexModel
+﻿@page
+@model Stavnic_Adrian_Lab2.Pages.Categories.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -23,25 +23,17 @@
                 @Html.DisplayNameFor(model => model.Book[0].PublishingDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
+                @Html.DisplayNameFor(model => model.Book[0].Publisher)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book[0].BookCategories)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.BookD.Books) {
-    string selectedRow = "";
-            if (item.ID == Model.BookID)
-            {
-                selectedRow = "table-success";   
-            }
-            <tr class="@selectedRow">
+@foreach (var item in Model.Book) {
+        <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -52,19 +44,10 @@
                 @Html.DisplayFor(modelItem => item.PublishingDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+                @Html.DisplayFor(modelItem => item.Publisher.ID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author.FirstName)
-                @Html.DisplayFor(modelItem => item.Author.LastName)
-            </td>
-            <td>
-                    @{
-                        foreach (var category in item.BookCategories)
-                        {
-                            @category.Category.ID @: @category.Category.CategoryName <br/>    
-                        }
-                    }
+                @Html.DisplayFor(modelItem => item.Author.ID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
