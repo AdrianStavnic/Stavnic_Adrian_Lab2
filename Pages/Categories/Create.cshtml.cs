@@ -21,24 +21,22 @@ namespace Stavnic_Adrian_Lab2.Pages.Categories
 
         public IActionResult OnGet()
         {
-        ViewData["AuthorID"] = new SelectList(_context.Authors, "ID", "ID");
-        ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID", "ID");
             return Page();
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Category Category { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Book == null || Book == null)
+          if (!ModelState.IsValid || _context.Category == null || Category == null)
             {
                 return Page();
             }
 
-            _context.Book.Add(Book);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

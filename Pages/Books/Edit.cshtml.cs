@@ -21,7 +21,7 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Book Book { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,8 +32,8 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
 
             Book = await _context.Book
                 .Include(b => b.Publisher)
-                .Include(b => b.BookCategories).ThenInclude(b => b.Category)
                 .Include(b => b.Author)
+                .Include(b => b.BookCategories).ThenInclude(b => b.Category)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
 
