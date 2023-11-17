@@ -38,7 +38,7 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
                 .FirstOrDefaultAsync(m => m.ID == id);
 
             PopulateAssignedCategoryData(_context, Book);
-            var authorList = _context.Authors.Select(x => new
+            var authorList = _context.Author.Select(x => new
             {
                 x.ID,
                 FullName = x.LastName + " " + x.FirstName

@@ -23,12 +23,12 @@ namespace Stavnic_Adrian_Lab2.Pages.Authors
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Authors == null)
+            if (id == null || _context.Author == null)
             {
                 return NotFound();
             }
 
-            var authors = await _context.Authors.FirstOrDefaultAsync(m => m.ID == id);
+            var authors = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
             if (authors == null)
             {
                 return NotFound();

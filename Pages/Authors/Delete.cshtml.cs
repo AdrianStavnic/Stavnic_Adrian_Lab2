@@ -24,12 +24,12 @@ namespace Stavnic_Adrian_Lab2.Pages.Authors
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Authors == null)
+            if (id == null || _context.Author== null)
             {
                 return NotFound();
             }
 
-            var authors = await _context.Authors.FirstOrDefaultAsync(m => m.ID == id);
+            var authors = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
 
             if (authors == null)
             {
@@ -44,16 +44,16 @@ namespace Stavnic_Adrian_Lab2.Pages.Authors
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Authors == null)
+            if (id == null || _context.Author == null)
             {
                 return NotFound();
             }
-            var authors = await _context.Authors.FindAsync(id);
+            var authors = await _context.Author.FindAsync(id);
 
             if (authors != null)
             {
                 Authors = authors;
-                _context.Authors.Remove(Authors);
+                _context.Author.Remove(Authors);
                 await _context.SaveChangesAsync();
             }
 

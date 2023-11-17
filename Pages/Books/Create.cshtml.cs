@@ -22,7 +22,7 @@ namespace Stavnic_Adrian_Lab2.Pages.Books
         public IActionResult OnGet()
         {
             ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
-            var authorList = _context.Authors.Select(x => new
+            var authorList = _context.Author.Select(x => new
             {
                 x.ID,
                 FullName = x.FirstName + " " + x.LastName

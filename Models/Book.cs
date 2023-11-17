@@ -20,8 +20,8 @@ namespace Stavnic_Adrian_Lab2.Models
 
         public Publisher? Publisher { get; set; } //navigation property
 
-        public int AuthorID { get; set; }
-        public Author Author { get; set; } //navigation property
+        public int? AuthorID { get; set; }
+        public Author? Author { get; set; } //navigation property
         public ICollection<BookCategory> BookCategories { get; set; }
     }
 }

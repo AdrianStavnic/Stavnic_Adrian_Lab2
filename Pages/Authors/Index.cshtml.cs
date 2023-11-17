@@ -23,9 +23,9 @@ namespace Stavnic_Adrian_Lab2.Pages.Authors
 
         public async Task OnGetAsync()
         {
-            if (_context.Authors != null)
+            if (_context.Author != null)
             {
-                Authors = await _context.Authors.ToListAsync();
+                Authors = await _context.Author.ToListAsync();
             }
         }
     }

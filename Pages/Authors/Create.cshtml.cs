@@ -31,12 +31,12 @@ namespace Stavnic_Adrian_Lab2.Pages.Authors
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Authors == null || Authors == null)
+          if (!ModelState.IsValid || _context.Author == null || Authors == null)
             {
                 return Page();
             }
 
-            _context.Authors.Add(Authors);
+            _context.Author.Add(Authors);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
